@@ -34,18 +34,20 @@ cd ..
 colcon build
 ```
 Anaconda:
+Installation for Anaconda Env follow chess-alpha-zero repo. 
+Details in (https://github.com/Zeta36/chess-alpha-zero.git)
 ```bash
-conda create -n tf_keras_env python=3.6.3
-conda activate tf_keras_env
+conda create -n env_name python=3.6.3
+conda activate env_name
 conda install tensorflow-gpu=1.3.0
 conda install keras=2.0.8
-# If you encounter any package conflicts or availability issues, you can try using conda-forge channel:
-conda install -c conda-forge tensorflow-gpu=1.3.0
-conda install -c conda-forge keras=2.0.8
-# verify your installation:
-python -c "import tensorflow as tf; print(tf.__version__)"
-python -c "import keras; print(keras.__version__)"
 ```
+After creating Anaconda Environment
+```bash
+cd [chess-alpha-zero] # Where you installed repo
+pip install -r requirements.txt
+```
+
 
 ## Project Structure
 After installation, we need to replace chess_model_server.py to your Aconda env (chess-alpha-zero), then we'll have Project structure shown below.
