@@ -90,51 +90,51 @@ ros2_ws/src/
 # 🐈Quick Start
 After everthing is setup
 ## For Franka Emika Panda robot
-Open the world
+Open the world (Keep world open)
 ```bash
 ros2 launch panda_env simulation.launch.py
 ```
 For testing movement (ChessWorld needs keep open)
 ```bash
-# 💀In another terminal💀
+# In another terminal
 ros2 run panda_env example_game
 ```
 For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 👽Anaconda:
 ```bash
-# 💀Need to be started inside your environment💀
+# Need to be started inside your environment
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
 👾Ubuntu:
 ```bash
-# 💀In another terminal💀
+# In another terminal
 ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ```
 
 ## For Universal Robots
-Open the world
+Open the world (Keep world open)
 ```bash
 ros2 launch ur_env ur_sim_control.launch.py ur_type:=ur10e (3, 5, 5e, 10, 10e, etc…)
 
 ```
 For testing movement (ChessWorld needs keep open)
 ```bash
-# 💀In another terminal💀
+# In another terminal
 ros2 run ur_chess_controller example_game
 ```
 For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 👽Anaconda:
 ```bash
-💀Need to be started inside your environment💀
+# Need to be started inside your environment
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
 👾Ubuntu:
 ```bash
-# 💀In another terminal💀
+# In another terminal
 ros2 run chess_robot_ai chess_robot_node_ur # For receiving RL model
 ```
 
