@@ -117,7 +117,7 @@ ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ## For Universal Robots
 Open the world (Keep world open)
 ```bash
-ros2 launch ur_env ur_sim_control.launch.py ur_type:=ur10e (3, 5, 5e, 10, 10e, etc…)
+ros2 launch ur_env ur_sim_control.launch.py ur_type:=ur10e #(3, 5, 5e, 10, 10e, etc…)
 
 ```
 For testing movement (ChessWorld needs keep open)
