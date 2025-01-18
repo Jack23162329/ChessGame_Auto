@@ -50,7 +50,7 @@ pip install -r requirements.txt
 
 
 ## Project Structure
-After installation, we need to replace chess_model_server.py to your Aconda env (chess-alpha-zero), then we'll have Project structure shown below.
+After installation, we need to replace chess_model_server.py from Ubuntu to your Aconda env (chess-alpha-zero), then we'll have Project structure as shown below.
 
 Ubuntu
 ```bash
