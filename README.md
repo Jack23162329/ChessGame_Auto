@@ -61,19 +61,7 @@ pip install -r requirements.txt
 ## Project Structure
 After installation, we need to replace `chess_model_server.py` from Ubuntu to your Aconda env (chess-alpha-zero), then we'll have Project Structure as shown below.
 
-Ubuntu
-```bash
-ros2_ws/src/
-├── chess_robot_ai/
-│  ├── chess_robot_ai/
-│  │    ├── chess_robot_node.py # This is for panda manipulator
-│  └──  └── chess_robot_node_UR.py # This is for UR manipulator
-├── panda_env
-├── ur_chess_controller
-└── ur_env
-
-```
-Anaconda (chess-alpha-zero)
+👽Anaconda (chess-alpha-zero)
 ```bash
 # only instruct where to put chess_model_server.py here
 chess-alpha-zero/
@@ -87,6 +75,18 @@ chess-alpha-zero/
 ├── requirements.txt
 └── readme.md
 ```
+👾Ubuntu
+```bash
+ros2_ws/src/
+├── chess_robot_ai/
+│  ├── chess_robot_ai/
+│  │    ├── chess_robot_node.py # This is for panda manipulator
+│  └──  └── chess_robot_node_UR.py # This is for UR manipulator
+├── panda_env
+├── ur_chess_controller
+└── ur_env
+```
+
 # Quick Start
 After everthing is setup
 ## For Franka Emika Panda robot
@@ -100,12 +100,12 @@ ros2 run chess_manipulator example_game
 ```
 For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
-Anaconda:
+👽Anaconda:
 ```bash
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model
 ```
-Ubuntu:
+👾Ubuntu:
 ```bash
 ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ```
