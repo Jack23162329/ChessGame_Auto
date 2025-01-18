@@ -1,6 +1,6 @@
 # ChessGame with RL
 
-## Overview
+## 😸Overview
 This project is under the construction of WSL1 with github repositories as shown below
   1. [Chess_manipulator(panda_env)](https://github.com/ZeinBarhoum/chess_manipulator.git)
   2. [Universal_Robots_ROS2_Gazebo_Simulation(ur_env)](https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation.git)
@@ -11,7 +11,7 @@ We aimed to use ROS2 for system control with Gazebro for simulation, creating Re
 
 
 
-## Prerequisites
+## 👍Prerequisites
 - ROS2 [humble]
 - Ubuntu [22.04.5 LTS]
 - Gazebo [version 11.10.2]
