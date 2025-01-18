@@ -16,7 +16,9 @@ This project is under the construction of WSL1 with github repositories as shown
 
 
 ## 🚀Quick Install Guide
-Ubuntu:
+We need to create both Ubuntu and Anaconda Environment for this project to avoid Environment collision 
+
+For Ubuntu:
 ```bash
 # cd your ros2 workspace
 cd ros2_ws # modified it with your own workspace name
@@ -33,7 +35,7 @@ cd ..
 # Build the workspace
 colcon build
 ```
-Anaconda:
+For Anaconda:
 Installation follow chess-alpha-zero repo. 
 [Details](https://github.com/Zeta36/chess-alpha-zero.git)
 ```bash
