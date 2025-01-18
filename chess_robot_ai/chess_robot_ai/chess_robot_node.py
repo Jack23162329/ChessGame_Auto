@@ -7,7 +7,7 @@ import sys
 import os
 
 # Directly set the path to your source files
-manipulator_path = "/home/jack/ros2_ws/src/panda_env/panda_env" # change it to the directory path you have
+manipulator_path = "/home/jack/ros2_ws/src/ChessGame_Auto/panda_env/panda_env" # change it to the directory path you have
 
 print(f"Adding to path: {manipulator_path}")
 if os.path.exists(manipulator_path):
