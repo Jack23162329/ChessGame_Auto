@@ -58,7 +58,7 @@ Anaconda (chess-alpha-zero)
 # only instruct where to put chess_model_server.py here
 chess-alpha-zero/
 ├── src/
-│  ├── chess_model_server.py
+│  ├── chess_model_server.py # put it here
 │  ├── __init__.py
 │  └── chess_zero
 ├── notebooks
