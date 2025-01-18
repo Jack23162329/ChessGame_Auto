@@ -103,12 +103,13 @@ For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 👽Anaconda:
 ```bash
+# 💀Need to be started inside your environment💀
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
 👾Ubuntu:
 ```bash
-# !In another terminal!
+# 💀In another terminal💀
 ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ```
 
@@ -120,19 +121,20 @@ ros2 launch ur_env ur_sim_control.launch.py ur_type:=ur10e (3, 5, 5e, 10, 10e, e
 ```
 For testing movement (ChessWorld needs keep open)
 ```bash
-# !In another terminal!
+# 💀In another terminal💀
 ros2 run ur_chess_controller example_game
 ```
 For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 👽Anaconda:
 ```bash
+💀Need to be started inside your environment💀
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
 👾Ubuntu:
 ```bash
-# !In another terminal!
+# 💀In another terminal💀
 ros2 run chess_robot_ai chess_robot_node_ur # For receiving RL model
 ```
 
