@@ -26,6 +26,9 @@ cd src
 # Clone the repository
 git clone git@github.com:Jack23162329/ChessGame_Auto.git
 
+# back to workspace directory
+cd ..
+
 # Build the workspace
 colcon build
 ```
