@@ -1,7 +1,7 @@
 # ChessGame with RL
 
 ## Overview
-This project is under the construction of WSL1 with github repositories shown below
+This project is under the construction of WSL1 with github repositories as shown below
   1. Chess_manipulator(panda chess_env) (https://github.com/ZeinBarhoum/chess_manipulator.git)
   2. Universal_Robots_ROS2_Gazebo_Simulation(UR env) (https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation.git)
   3. chess-alpha-zero(for sending reinforcement learning) (https://github.com/Zeta36/chess-alpha-zero.git)
