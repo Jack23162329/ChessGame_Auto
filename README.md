@@ -48,7 +48,11 @@ conda install keras=2.0.8
 ```
 After creating Anaconda Environment
 ```bash
-cd [chess-alpha-zero] # Where you installed repo
+cd [chess-alpha-zero] # Where you want to install repo
+git@github.com:Zeta36/chess-alpha-zero.git
+```
+Download requirements for chess-alpha-zero
+```bash
 pip install -r requirements.txt
 ```
 
