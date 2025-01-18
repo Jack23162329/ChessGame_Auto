@@ -47,7 +47,7 @@ conda activate env_name
 conda install tensorflow-gpu=1.3.0
 conda install keras=2.0.8
 ```
-After creating Anaconda Environment
+After creating Anaconda Environment (clone repository)
 ```bash
 cd [path] # Where you want to install repo
 git@github.com:Zeta36/chess-alpha-zero.git
