@@ -96,7 +96,7 @@ ros2 launch panda_env simulation.launch.py
 ```
 For testing movement (ChessWorld needs keep open)
 ```bash
-# !In another terminal!
+# 💀In another terminal💀
 ros2 run panda_env example_game
 ```
 For Reinforcement Learning ChessGame (ChessWorld needs keep open)
