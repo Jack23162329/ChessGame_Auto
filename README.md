@@ -18,7 +18,7 @@ We aimed to use ROS2 for system control with Gazebro for simulation, creating Re
 
 
 ## 🚀Quick Install Guide
-We need to create both Ubuntu and Anaconda Environment for this project to avoid Environment collision 
+We need to create both Ubuntu and Anaconda Environment for this project to avoid Environmental collision 
 
 For Ubuntu:
 ```bash
