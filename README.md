@@ -94,11 +94,11 @@ Open the world
 ```bash
 ros2 launch chess_manipulator simulation.launch.py
 ```
-For testing movement
+For testing movement (ChessWorld needs keep open)
 ```bash
 ros2 run chess_manipulator example_game
 ```
-For Reinforcement Learning ChessGame
+For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 Anaconda:
 ```bash
@@ -107,7 +107,7 @@ python chess_model_server.py # Turn on server for RL model
 ```
 Ubuntu:
 ```bash
-ros2 run chess_robot_ai chess_robot_node
+ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ```
 
 
