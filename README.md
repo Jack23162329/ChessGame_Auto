@@ -63,7 +63,7 @@ After installation, we need to replace `chess_model_server.py` from Ubuntu to yo
 
 👽Anaconda (chess-alpha-zero)
 ```bash
-# only instruct where to put chess_model_server.py here
+# only to instruct where to put chess_model_server.py here
 chess-alpha-zero/
 ├── src/
 │  ├── chess_model_server.py # put it here
