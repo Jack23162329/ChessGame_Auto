@@ -18,17 +18,13 @@ This project is under the construction of WSL1 with github repositories shown be
 ## 🚀Quick Install Guide
 ```bash
 # cd your ros2 workspace
-cd [ros2_ws] # modified it with your own workspace name
+cd ros2_ws # modified it with your own workspace name
 
 # cd src
 cd src
 
 # Clone the repository
 git clone git@github.com:Jack23162329/ChessGame_Auto.git
-
-
-# Install dependencies
-[dependency installation commands]
 
 # Build the workspace
 colcon build
