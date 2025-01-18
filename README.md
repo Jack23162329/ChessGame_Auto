@@ -103,7 +103,8 @@ For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 👽Anaconda:
 ```bash
-# Need to be started inside your environment
+# Need to be started inside your Anaconda environment
+conda activate env_name
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
@@ -128,7 +129,8 @@ For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 
 👽Anaconda:
 ```bash
-# Need to be started inside your environment
+# Need to be started inside your Anaconda environment
+conda activate env_name
 cd chess-alpha-zero\src # where you install the repo
 python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
