@@ -10,7 +10,7 @@ This project is under the construction of WSL with github repositories shown bel
 ## Prerequisites
 - ROS2 [humble]
 - Ubuntu [22.04.5 LTS]
-- gazebo [version 11.10.2]
+- Gazebo [version 11.10.2]
 
 
 ## Installation
