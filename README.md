@@ -77,7 +77,7 @@ chess-alpha-zero/
 ```
 👾Ubuntu
 ```bash
-ros2_ws/src/
+ChessGame_Auto/
 ├── chess_robot_ai/
 │  ├── chess_robot_ai/
 │  │    ├── chess_robot_node.py # This is for panda manipulator
