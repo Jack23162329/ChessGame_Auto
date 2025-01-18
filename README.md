@@ -103,7 +103,7 @@ For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 👽Anaconda:
 ```bash
 cd chess-alpha-zero\src # where you install the repo
-python chess_model_server.py # Turn on server for RL model
+python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
 👾Ubuntu:
 ```bash
@@ -125,11 +125,11 @@ For Reinforcement Learning ChessGame (ChessWorld needs keep open)
 👽Anaconda:
 ```bash
 cd chess-alpha-zero\src # where you install the repo
-python chess_model_server.py # Turn on server for RL model
+python chess_model_server.py # Turn on server for RL model, sending RL model
 ```
 👾Ubuntu:
 ```bash
-ros2 run chess_robot_ai chess_robot_node # For receiving RL model
+ros2 run chess_robot_ai chess_robot_node_ur # For receiving RL model
 ```
 
 
