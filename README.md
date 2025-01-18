@@ -16,6 +16,7 @@ This project is under the construction of WSL1 with github repositories shown be
 
 
 ## 🚀Quick Install Guide
+Ubuntu:
 ```bash
 # cd your ros2 workspace
 cd ros2_ws # modified it with your own workspace name
@@ -31,6 +32,10 @@ cd ..
 
 # Build the workspace
 colcon build
+```
+Anaconda:
+```bash
+
 ```
 
 ## Project Structure
