@@ -6,7 +6,7 @@ This project is under the construction of WSL1 with github repositories as shown
   2. [Universal_Robots_ROS2_Gazebo_Simulation(ur_env)](https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation.git)
   3. [chess-alpha-zero(for sending reinforcement learning model)](https://github.com/Zeta36/chess-alpha-zero.git)
 
-We aimed to use ROS2 for system control with Gazebro for simulation, creating Reinfocement learning chess game for Panda and UR manipulator to play with Human, right now we only build the machanism for it.
+We aimed to use ROS2 for system control with Gazebo for simulation, creating Reinfocement learning chess game for Panda and UR manipulator to play with Human, right now we only build the machanism for it.
 
 
 
