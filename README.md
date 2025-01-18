@@ -9,7 +9,7 @@ This project is under the construction of WSL with github repositories shown bel
 
 ## Prerequisites
 - ROS2 [humble]
-- Ubuntu [Ubuntu 22.04.5 LTS]
+- Ubuntu [22.04.5 LTS]
 
 
 ## Installation
