@@ -34,7 +34,7 @@ cd ..
 colcon build
 ```
 Anaconda:
-Installation for Anaconda Env follow chess-alpha-zero repo. 
+Installation follow chess-alpha-zero repo. 
 Details in (https://github.com/Zeta36/chess-alpha-zero.git)
 ```bash
 conda create -n env_name python=3.6.3
