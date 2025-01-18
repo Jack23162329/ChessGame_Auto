@@ -1,4 +1,4 @@
-# ChessGame with RL
+![image](https://github.com/user-attachments/assets/130ca895-a5fb-4df0-935f-31d253ef4fc6)# ChessGame with RL
 
 ## 😸Overview
 This project is under the construction of WSL1 with github repositories as shown below
@@ -36,6 +36,7 @@ cd ..
 
 # Build the workspace
 colcon build
+source install/setup.bash
 ```
 For Anaconda:
 Installation follow chess-alpha-zero repo. 
@@ -87,3 +88,27 @@ chess-alpha-zero/
 └── readme.md
 ```
 # Quick Start
+After everthing is setup
+## For Franka Emika Panda robot
+Open the world
+```bash
+ros2 launch chess_manipulator simulation.launch.py
+```
+For testing movement
+```bash
+ros2 run chess_manipulator example_game
+```
+For Reinforcement Learning ChessGame
+
+Anaconda:
+```bash
+cd chess-alpha-zero\src # where you install the repo
+python chess_model_server.py # Turn on server for RL model
+```
+Ubuntu:
+```bash
+ros2 run chess_robot_ai chess_robot_node
+```
+
+
+
