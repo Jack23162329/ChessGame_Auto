@@ -8,7 +8,7 @@ This project is under the construction of WSL1 with github repositories shown be
 
 ## Project Structure
 ```bash
-# inside work_space/src
+ros2_ws/src
 ├── chess_robot_ai/
 │  ├── chess_robot_ai/
 │  │  ├── chess_robot_node.py
