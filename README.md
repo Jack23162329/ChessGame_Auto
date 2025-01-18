@@ -85,6 +85,7 @@ ChessGame_Auto/
 ├── panda_env
 ├── ur_chess_controller
 ├── ur_env
+├── notes
 └── README.md
 ```
 
