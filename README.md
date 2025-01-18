@@ -1,4 +1,4 @@
-# ChessGame Reinforcement learning
+# ChessGame with RL
 
 ## Overview
 This project is under the construction of WSL with github repositories shown below
@@ -14,9 +14,15 @@ This project is under the construction of WSL with github repositories shown bel
 
 ## Installation
 ```bash
+# cd your ros2 workspace
+cd [ros2_ws] # modified it with your own workspace name
+
+# cd src
+cd src
+
 # Clone the repository
-git clone [your-repo-url]
-cd [repo-name]
+git clone git@github.com:Jack23162329/ChessGame_Auto.git
+
 
 # Install dependencies
 [dependency installation commands]
