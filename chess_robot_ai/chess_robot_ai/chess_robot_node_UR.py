@@ -7,7 +7,7 @@ import sys
 import os
 
 # Directly set the path to your source files
-manipulator_path = "/home/jack/ros2_ws/src/ur_chess_controller/ur_chess_controller"
+manipulator_path = "/home/jack/ros2_ws/src/ChessGame_Auto/ur_chess_controller/ur_chess_controller"
 
 print(f"Adding to path: {manipulator_path}")
 if os.path.exists(manipulator_path):
