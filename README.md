@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/130ca895-a5fb-4df0-935f-31d253ef4fc6)# ChessGame with RL
+# ChessGame with RL
 
 ## 😸Overview
 This project is under the construction of WSL1 with github repositories as shown below
