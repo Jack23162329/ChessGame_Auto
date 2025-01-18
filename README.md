@@ -11,8 +11,8 @@ This project is under the construction of WSL1 with github repositories shown be
 ros2_ws/src/
 ├── chess_robot_ai/
 │  ├── chess_robot_ai/
-│  │  ├── chess_robot_node.py
-│  │  ├── chess_robot_node_UR.py
+│  │  ├── chess_robot_node.py # This is used for Auto panda manipulator
+│  │  ├── chess_robot_node_UR.py # This is used for Auto UR manipulator
 ├── panda_env
 ├── ur_chess_controller
 ├── ur_env
