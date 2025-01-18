@@ -62,7 +62,8 @@ chess-alpha-zero/
 │  ├── __init__.py
 │  └── chess_zero
 ├── notebooks
-├── logs
 ├── data
-└── binder
+├── binder
+├── requirements.txt
+└── readme.md
 ```
