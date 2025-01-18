@@ -32,8 +32,9 @@ cd ..
 # Build the workspace
 colcon build
 ```
+
 ## Project Structure
-Ubuntu 
+After installation, we need to replace chess_model_server.py to your Aconda env (chess-alpha-zero), then we'll have Project structure shown below.
 ```bash
 ros2_ws/src/
 ├── chess_robot_ai/
