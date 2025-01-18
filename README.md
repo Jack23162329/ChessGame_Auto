@@ -84,7 +84,8 @@ ChessGame_Auto/
 │  └──  └── chess_robot_node_UR.py # This is for UR manipulator
 ├── panda_env
 ├── ur_chess_controller
-└── ur_env
+├── ur_env
+└── README.md
 ```
 
 # 🐈Quick Start
