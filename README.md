@@ -148,7 +148,7 @@ https://github.com/user-attachments/assets/47fa09a7-7d71-4cb4-9595-e0c2054d9e79
 
 ## Known Problems
 1. we can not play KNIGHT, BISHOP and other pieces since we didn't grab the chess pieces.
-2. since manipulator arm limit, we are not able to reach last column of chessborad(a8, b8 etc...)
+2. Since the limits of manipulators, we are not able to reach last row of chessborad(a8, b8 etc...)
 
 
 
