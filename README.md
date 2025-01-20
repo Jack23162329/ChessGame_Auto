@@ -141,6 +141,15 @@ python chess_model_server.py # Turn on server for RL model, sending RL model
 # In another terminal
 ros2 run chess_robot_ai chess_robot_node_ur # For receiving RL model
 ```
+## ▶️Demo
+Try to use RL to make auto chess game play
+https://github.com/user-attachments/assets/47fa09a7-7d71-4cb4-9595-e0c2054d9e79
+
+## Known Problems
+1. we can not play KNIGHT, BISHOP and other pieces since we didn't grab the chess pieces.
+2. since manipulator arm limit, we are not able to reach last column of chessborad(a8, b8 etc...)
+
+
 
 
 
