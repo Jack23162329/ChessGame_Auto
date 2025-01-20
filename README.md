@@ -143,6 +143,7 @@ ros2 run chess_robot_ai chess_robot_node_ur # For receiving RL model
 ```
 ## ▶️Demo
 Try to use RL to make auto chess game play
+
 https://github.com/user-attachments/assets/47fa09a7-7d71-4cb4-9595-e0c2054d9e79
 
 ## Known Problems
