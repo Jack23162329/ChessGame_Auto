@@ -30,7 +30,7 @@ class ChessRobotNodeUR(Node):
         super().__init__('chess_robot_node_ur')
         
         # Model server configuration
-        self.model_url = 'http://localhost:5000'
+        self.model_url = 'http://host.docker.internal:5000'
 
         self.alpha_number = {
             'a': 8, 'b': 7, 'c': 6, 'd': 5,
