@@ -61,7 +61,7 @@ class panda_7dof(Panda):
         if(plan):
             self.plan.extend(qs)
         else:
-            os.system(f'ros2 run chess_manipulator multi_point_controller {int(n)} {int(dt*1e9)} {self.string_qs(qs)}')
+            os.system(f'ros2 run panda_env multi_point_controller {int(n)} {int(dt*1e9)} {self.string_qs(qs)}')
         self.update(qs[-1])
         self.p = p
     
@@ -84,69 +84,6 @@ class panda_7dof(Panda):
             return
         self.move_linear(p,t,n,plan)  
 
-    # def move_straight(self, direction, distance, t, n=5, plan=False):
-    #     """
-    #     Move in a straight line while maintaining orientation
-    #     Args:
-    #         direction: 'vertical', 'forward', 'backward', 'left', 'right'
-    #         distance: distance to move in meters
-    #         t: time duration
-    #         n: number of steps
-    #         plan: whether to add to plan or execute immediately
-    #     """
-    #     current_q = self.q.copy()
-    #     current_pose = self.fk(current_q)
-        
-    #     # Generate a series of poses along the straight line
-    #     steps = []
-    #     for i in range(n):
-    #         # Create new transform maintaining orientation
-    #         new_T = current_pose.copy()
-            
-    #         # Update position based on direction
-    #         step_distance = distance * (i+1) / n
-
-    #         if direction == 'vertical':
-    #             new_T.t[2] += step_distance
-    #         elif direction == 'forward':
-    #             new_T.t[0] += step_distance
-    #         elif direction == 'backward':
-    #             new_T.t[0] -= step_distance
-    #         elif direction == 'left':
-    #             new_T.t[1] += step_distance
-    #         elif direction == 'right':
-    #             new_T.t[1] -= step_distance
-    #         else:
-    #             print("Invalid direction. Use: vertical, forward, backward, left, right")
-    #             return
-            
-    #         # Try to find IK solution close to current configuration
-    #         try:
-    #             sol = self.ikine_LM(new_T, q0=current_q)
-    #             if sol.success and not np.any(np.isnan(sol.q)):
-    #                 steps.append(sol.q)
-    #                 # Update current_q to use as next initial guess
-    #                 current_q = sol.q
-    #             else:
-    #                 print(f"Warning: Invalid solution at step {i+1}")
-    #                 continue
-    #         except Exception as e:
-    #             print(f"Error at step {i+1}: {e}")
-    #             continue
-        
-    #     if len(steps) == 0:
-    #         print("No valid solutions found")
-    #         return
-        
-    #     if plan:
-    #         self.plan.extend(steps)
-    #     else:
-    #         dt = t/len(steps)
-    #         for step in steps:
-    #             os.system(f'ros2 run chess_manipulator multi_point_controller 1 {int(dt*1e9)} {self.string_q(step)}')
-    #             self.update(step)
-                
-    #     return True
     def move_straight(self, direction, distance, t, n=5, plan=False):
         """
         Move in a straight line while maintaining orientation
@@ -184,7 +121,7 @@ class panda_7dof(Panda):
         else:
             dt = t/n
             for step in steps:
-                os.system(f'ros2 run chess_manipulator multi_point_controller 1 {int(dt*1e9)} {self.string_q(step)}')
+                os.system(f'ros2 run panda_env multi_point_controller 1 {int(dt*1e9)} {self.string_q(step)}')
                 self.update(step)
         
         # print(f"Final position: {self.fk(self.q).t}")
@@ -195,7 +132,7 @@ class panda_7dof(Panda):
         qs = self.plan
         n= len(qs)
         dt = t/n
-        os.system(f'ros2 run chess_manipulator multi_point_controller {n} {int(dt*1e9)} {self.string_qs(qs)}')
+        os.system(f'ros2 run panda_env multi_point_controller {n} {int(dt*1e9)} {self.string_qs(qs)}')
         self.update(qs[-1])
         if(erase):
             self.plan = []
@@ -209,14 +146,14 @@ class panda_7dof(Panda):
         if(plan):
             self.plan.extend([q])
         else:
-            os.system(f'ros2 run chess_manipulator multi_point_controller 1 {int(t*1e9)} {self.string_q(q)}')
+            os.system(f'ros2 run panda_env multi_point_controller 1 {int(t*1e9)} {self.string_q(q)}')
         self.update(q)
         
         
         
     def set_q(self, q, t):
         self.update(q)
-        os.system(f'ros2 run chess_manipulator multi_point_controller 1 {int(t*1e9)} {self.string_q(q)} ')
+        os.system(f'ros2 run panda_env multi_point_controller 1 {int(t*1e9)} {self.string_q(q)} ')
     
     def update(self,q):
         self.q = q
@@ -238,7 +175,7 @@ class panda_7dof(Panda):
         if(plan):
             self.plan.extend([new_q])
         else:
-            os.system(f'ros2 run chess_manipulator multi_point_controller 1 {int(t*1e9)} {self.string_q(new_q)}')
+            os.system(f'ros2 run panda_env multi_point_controller 1 {int(t*1e9)} {self.string_q(new_q)}')
         self.update(new_q)
         
             

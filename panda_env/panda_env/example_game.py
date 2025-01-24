@@ -38,22 +38,6 @@ def go_forward(g):
 def go_backward(g):
     robot.move_straight('forward',g * moving, 0.8, n=7, plan=True)
 
-    
-# def go_down(d = 0.09):
-#     robot.direction('d',d,1,5,True)
-# def go_up(d = 0.09):
-#     robot.direction('u',d,1,5,True)
-# def go_to_corner():
-#     robot.direction('l',dx/2,1,5,True)
-#     robot.direction('f',dx/2,1,5,True)
-# def go_to_center():
-#     robot.direction('r',dx/2,1,4,True)
-#     robot.direction('b',dx/2+0,1,4,True)
-# def centralize():
-#     robot.direction('l',dx/8,1,4,True)
-#     robot.direction('b',dx/8+0,1,4,True)
-#     robot.direction('f',dx/8+0,1,4,True)    
-
 def piece2piece(piece1,piece2,error_y = 0, d=0.09):
     
     #step one--> get the position
@@ -87,34 +71,6 @@ def piece2piece(piece1,piece2,error_y = 0, d=0.09):
         pass
     #step four--> go up and reset
     go_up()
-
-    
-#It's originall code from github
-    # go_down(d)   
-    # go_to_corner()
-    # x1 = piece1[0]
-    # y1 = piece1[1]
-
-    # x2 = piece2[0]
-    # y2 = piece2[1]
-    
-    # delta_x = x2 - x1
-    # delta_y = y2 - y1
-    # if delta_x>0:
-    #     robot.direction('f',delta_x*dx,1,2 + abs(delta_x),True)
-    # else:
-    #     robot.direction('b',-delta_x*dx,1,2 + abs(delta_x),True)
-    
-    # if delta_y>0:
-    #     robot.direction('l',delta_y*dx,1,2 + abs(delta_y),True)
-    # else:
-    #     robot.direction('r',-delta_y*dx,1,2 + abs(delta_y),True)
-    
-    # go_to_center()
-    
-    # # centralize()
-    
-    # go_up(d)
     
 def main():
     
@@ -177,49 +133,6 @@ def main():
         except Exception as e:
             print(f"Unexpected error: {e}")
             print("Please try again.")
-
-    #@@# print("Let's move all the pawn forward")
-    # row = 2
-    # for i in range(1, 9):
-    #     print(i)
-    #     piece2piece([row,i],[row+2,i])
-    #     robot.execute_plan(20,erase=True) # change the number here to change the operation time
-    #     robot.reset()
-    
-    # row = 4
-    # print("Now let's put it back")
-    # for j in range(1, 9):
-    #     print(j)
-    #     piece2piece([row,j],[row-2,j])
-    #     robot.execute_plan(20,erase=True)
-    #     robot.reset()
-    
-    # row = 7
-    # print("This time is the opponite pawn")
-    # for j in range(1, 9):
-    #     print(j)
-    #     piece2piece([row,j],[row-2,j])
-    #     robot.execute_plan(20,erase=True)
-    #     robot.reset()
-    
-
-
-    #@@# testing for manipulator arm can go to each points of the checkerboard
-    # print("let't go to every corner on the checkboard")
-    # for i in range(1, 9):
-    #     for j in range(1, 9):
-    #         piece2piece([i, j], [i, j])
-    #         robot.execute_plan(5, erase= True)
-    #         robot.reset()
-    
-    # print('Executing d2 to d4')
-    # piece2piece([2,5],[4,5])
-    # robot.execute_plan(30,erase=True)
-
-    # print('Executing d1 takes d4')
-
-    # piece2piece([1,5],[4,5])
-    # robot.execute_plan(60,erase=True)
         
 if __name__ == '__main__':
     

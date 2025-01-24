@@ -21,22 +21,6 @@ class ChessRobotController:
                 positions[i][j][1] = -(self.y0 + j*self.dx)
         return positions
 
-    # def retry_until_success(self, movement_func, *args, **kwargs):
-    #     """Keep retrying movement until successful"""
-    #     while True:
-    #         try:
-    #             print("Attempting movement...")
-    #             result = movement_func(*args, **kwargs)
-    #             # Execute the planned movement
-    #             self.robot.execute_plan(5, erase=True)
-    #             time.sleep(0.5)  # Small delay after movement
-    #             return True
-    #         except Exception as e:
-    #             print(f"Movement failed: {str(e)}")
-    #             print("Retrying movement...")
-    #             time.sleep(0.5)  # Delay before retry
-    #             continue
-
     def go_to_piece(self, piece,error_y = 0):
         self.robot.move_to_pos_1step([self.positions[piece[0]-1][piece[1]-1][0],
                              self.positions[piece[0]-1][piece[1]-1][1] + self.ey + error_y,0.4],0.5,True)

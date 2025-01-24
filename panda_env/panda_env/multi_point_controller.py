@@ -13,7 +13,6 @@ class JointControlClient(Node):
         super().__init__(node_name='joint_controller')
         self._action_client = ActionClient(node=self, action_type=FollowJointTrajectory,
                                            action_name='/joint_trajectory_controller/follow_joint_trajectory')
-        # self._subscriber =
 
     def send_goal(self, n, qs, dt_ns):
         goal_msg = FollowJointTrajectory.Goal()
@@ -34,18 +33,6 @@ class JointControlClient(Node):
             point.time_from_start = Duration(nanoseconds=int(dt_ns*(i+1))).to_msg()
             point.positions = q
             points.append(point)
-        
-        # point1 = JointTrajectoryPoint()
-        # point1.positions = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-
-        # # angles= [1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0]
-
-        # point2 = JointTrajectoryPoint()
-        # point2.time_from_start = Duration(seconds=int(time), nanoseconds=0).to_msg()
-        # point2.positions = angles
-
-        # # points.append(point1)
-        # points.append(point2)
 
         goal_msg.goal_time_tolerance=Duration(seconds=0.001).to_msg()
         goal_msg.trajectory.joint_names = joint_names

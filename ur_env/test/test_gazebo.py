@@ -77,7 +77,7 @@ def generate_test_description(ur_type):
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             PathJoinSubstitution(
-                [FindPackageShare("ur_simulation_gazebo"), "launch", "ur_sim_control.launch.py"]
+                [FindPackageShare("ur_env"), "launch", "ur_sim_control.launch.py"]
             )
         ),
         launch_arguments={

@@ -43,7 +43,6 @@ setup(
             'controller = panda_env.controller:main',
             'multi_point_controller = panda_env.multi_point_controller:main',
             'example_game = panda_env.example_game:main',
-            'easy = panda_env.easy: test_corner_center_movement',
         ],
     },
 )

@@ -69,7 +69,7 @@ def launch_setup(context, *args, **kwargs):
     )
 
     # Add model path for chess pieces
-    chess_pkg = get_package_share_directory('chess_manipulator')
+    chess_pkg = get_package_share_directory('panda_env')
     chess_models = os.path.join(chess_pkg, 'models')
     if 'GAZEBO_MODEL_PATH' in os.environ:
         os.environ['GAZEBO_MODEL_PATH'] = os.environ['GAZEBO_MODEL_PATH'] + ':' + chess_models
