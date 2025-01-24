@@ -9,9 +9,28 @@ This project is implemented in WSL2 with GitHub repositories as shown below:
 We aim to use ROS2 for system control with Gazebo for simulation, creating a Reinforcement Learning chess game for Panda and UR manipulator to play with humans. Currently, we have implemented the basic mechanism for the system.
 
 ## 👍Prerequisites
+Note on Prerequisites: This project relies on various ROS2 and Gazebo packages. The exact requirements may vary depending on your system configuration and needs, download those packages if you encounter errors.
+
 - ROS2 [humble]
-- Ubuntu [22.04.5 LTS]
+- Ubuntu on WSL2[22.04.5 LTS]
 - Gazebo [version 11.10.2]
+- Python 3.8+
+
+
+
+## Environmental Setup 
+Add these lines to your ~/.bashrc:
+```bash
+# ROS2 and Development Tools
+source /opt/ros/humble/setup.bash
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+
+# Workspace
+source ~/ros2_ws/install/setup.bash
+
+# WSL2 Display Configuration
+export DISPLAY=:0
+```
 
 ## 🚀Quick Install Guide
 We need to create both Ubuntu and Anaconda environments for this project to avoid environment conflicts.
