@@ -19,7 +19,7 @@ Note on Prerequisites: This project relies on various ROS2 and Gazebo packages. 
 
 
 ## Environmental Setup 
-Add these lines to your ~/.bashrc:
+Add these lines to your ~/.bashrc: (It's typically located inside your workspace)
 ```bash
 # ROS2 and Development Tools
 source /opt/ros/humble/setup.bash
