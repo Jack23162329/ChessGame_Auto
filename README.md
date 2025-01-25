@@ -15,7 +15,7 @@ We aim to use ROS2 for system control with Gazebo for simulation, creating a Rei
 - Python 3.8+
 
 Note on Prerequisites: This project relies on various ROS2 and Gazebo packages. The exact requirements may vary depending on your system configuration and needs, download those packages if you encounter errors.
-Also, if you want to able to use UR manipulator arms, we need to install the all the dependies shown in Universal_Robots_ROS2_Gazebo_Simulation repo.
+Also, if you want to be able to use UR manipulator arms, we need to install all the dependies shown in Universal_Robots_ROS2_Gazebo_Simulation repo.
 
 
 
