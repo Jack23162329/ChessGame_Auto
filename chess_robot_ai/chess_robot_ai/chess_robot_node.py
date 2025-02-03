@@ -65,24 +65,6 @@ class ChessRobotNode(Node):
                 self.play_game()
             else:
                 self.get_logger().info("Failed to connect to model server")
-                # Test getting a move prediction
-                # self.get_logger().info("Requesting prediction from model...")
-                # move = self.get_ai_move()
-                
-                # if move:
-                #     self.get_logger().info(f"Received move prediction: {move}")
-                    
-                #     # Test robot movement with the predicted move
-                #     success = self.execute_move(move)
-                    
-                #     if success:
-                #         self.get_logger().info("Test move executed successfully!")
-                #         # Start the continuous game loop after successful test
-                #         self.play_game()
-                #     else:
-                #         self.get_logger().error("Failed to execute test move")
-                # else:
-                #     self.get_logger().error("Failed to get move prediction")
                 
         except Exception as e:
             self.get_logger().error(f"Test failed: {str(e)}")
@@ -199,7 +181,9 @@ class ChessRobotNode(Node):
         except Exception as e:
             self.get_logger().error(f"Error setting up game loop: {str(e)}")
 
-    def _game_loop_callback(self):
+
+    # main code shown here, where we get the predictions from model and move the chess sets.
+    def _game_loop_callback(self): 
         """Callback for the game loop timer"""
         try:
             # Get AI's move

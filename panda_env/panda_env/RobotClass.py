@@ -23,9 +23,15 @@ class panda_7dof(Panda):
         self.set_q(self.q,1)
     
         
-    def ik(self, T):
-        q = self.ikine_LM(T, joint_limits = True).q
-        return q
+    def ik(self, T, q0=None):
+        if q0 == None:  # Very important, our result sometimes will crash is bcs of we didn't designate qo for ik(), 
+            #so we give it current self.q for initial guess, makes it stable and continuous
+            q0 = self.q
+        sol = self.ikine_LM(T, q0=q0, joint_limits=True)
+        if sol.success:
+            return sol.q
+        else:
+            raise ValueError("IK solution failed for the given transformation.")
     
     def fk(self, q):
         return self.fkine(q)

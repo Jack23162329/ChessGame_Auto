@@ -26,7 +26,7 @@ class ChessRobotController:
                              self.positions[piece[0]-1][piece[1]-1][1] + self.ey + error_y,0.4],0.5,True)
 
     def go_down(self):
-        self.robot.move_straight('vertical', -self.moving, 0.8, n=8, plan=True)
+        self.robot.move_straight('vertical', -self.moving, 0.8, n=7, plan=True)
     def go_up(self):
         self.robot.move_straight('vertical', self.moving, 0.8, n=7, plan=True)
     #g represent grid
@@ -83,6 +83,14 @@ def main():
         'e': 4, 'f': 3, 'g': 2, 'h': 1
     }
 
+    # for i in range(1, 8+1):
+    #     for j in range(1, 8+1):
+    #         controller.go_to_piece([j, i])
+    #         controller.robot.execute_plan(5, erase=True)
+    #         print("Reset")
+    #         controller.robot.reset()
+
+
     while True:
         try:
             move = input("Enter move (e.g. 'd2 to d4' or 'd2d4', or 'quit' to exit, 'reset' to reset: ").lower().strip()
@@ -119,7 +127,7 @@ def main():
                 [int(from_square[1]), alpha_number[from_square[0]]], 
                 [int(to_square[1]), alpha_number[to_square[0]]]
             )
-            controller.robot.execute_plan(20, erase=True)
+            controller.robot.execute_plan(10, erase=True)
             print("Reset")
             controller.robot.reset()
                          

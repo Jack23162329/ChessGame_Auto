@@ -22,9 +22,16 @@ class ur10_6dof(UR10):
         self.plan = []
         self.set_q(self.q,1)
     
-    def ik(self, T):
-        q = self.ikine_LM(T, joint_limits = True).q
-        return q
+    def ik(self, T, q0=None):
+        if q0 == None:  # Very important, our result sometimes will crash is bcs of we didn't designate qo for ik(), 
+            #so we give it current self.q for initial guess, makes it stable and continuous
+            q0 = self.q
+        sol = self.ikine_LM(T, q0=q0, joint_limits=True)
+        if sol.success:
+            return sol.q
+        else:
+            raise ValueError("IK solution failed for the given transformation.")
+
     
     def fk(self, q):
         return self.fkine(q)
@@ -96,7 +103,14 @@ class ur10_6dof(UR10):
 
     def move_straight(self, direction, distance, t, n=5, plan=False):
         """
-        Move in a straight line while maintaining orientation
+        Move the robot in a straight line in the specified direction while maintaining its orientation.
+        
+        Parameters:
+            direction (str): 'vertical', 'forward', or 'side'
+            distance (float): The distance to move in the specified direction.
+            t (float): Total time for the movement.
+            n (int): Number of interpolation steps.
+            plan (bool): If True, append the movement steps to the plan; otherwise, execute immediately.
         """
         steps = []
         current_T = self.fk(self.q)
@@ -127,3 +141,10 @@ class ur10_6dof(UR10):
             for step in steps:
                 os.system(f'ros2 run ur_chess_controller multi_point_controller 1 {int(dt*1e9)} {self.string_q(step)}')
                 self.update(step)
+
+
+
+
+
+
+

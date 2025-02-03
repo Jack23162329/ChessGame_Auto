@@ -22,7 +22,7 @@ setup(
         'console_scripts': [
             'controller = ur_chess_controller.controller:main',
             'example_game = ur_chess_controller.example_game:main',
-            'multi_point_controller = ur_chess_controller.multi_point_controller:main',  # Add this
+            'multi_point_controller = ur_chess_controller.multi_point_controller:main',
         ],
     },
 )
