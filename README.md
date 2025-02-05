@@ -162,7 +162,7 @@ https://github.com/user-attachments/assets/47fa09a7-7d71-4cb4-9595-e0c2054d9e79
 
 ## Known Problems
 1. We cannot play with KNIGHT, BISHOP and other pieces since we have not implemented the piece grasping function.
-2. Due to the manipulator's workspace limitations, we cannot reach the last row of the chessboard (a8, b8, etc.).
+2. Due to the manipulator's workspace limitations, we cannot reach the last row of the chessboard (a8, b8, etc.).(solved by using UR robot)
 
 ---
 
