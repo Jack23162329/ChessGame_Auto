@@ -22,7 +22,7 @@
     </model> -->
     <model name='table'>
       <static>1</static>
-      <pose>0.9 0 -2.00 0 0 0</pose>
+      <pose>0.8 0 0.15 0 0 0</pose>
       <link name='link'>
         <inertial>
           <mass>1</mass>
@@ -54,7 +54,7 @@
     </model>
 
     <model name="piece11">
-      <pose>0.535 -0.266 0.18 0 0 0</pose>
+      <pose>0.535 -0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -110,7 +110,7 @@
     </model>
 
     <model name="piece12">
-      <pose>0.535 -0.19 0.18 0 0 0</pose>
+      <pose>0.535 -0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -166,7 +166,7 @@
     </model>
 
     <model name="piece13">
-      <pose>0.535 -0.114 0.18 0 0 0</pose>
+      <pose>0.535 -0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -221,7 +221,7 @@
       </link>
     </model>
     <model name="piece14">
-      <pose>0.535 -0.038 0.18 0 0 0</pose>
+      <pose>0.535 -0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -277,7 +277,7 @@
     </model>
 
     <model name="piece15">
-      <pose>0.535 0.038 0.18 0 0 0</pose>
+      <pose>0.535 0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -334,7 +334,7 @@
 
 
     <model name="piece16">
-      <pose>0.535 +0.114 0.18 0 0 0</pose>
+      <pose>0.535 +0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -390,7 +390,7 @@
     </model>
 
     <model name="piece17">
-      <pose>0.535 0.19 0.18 0 0 0</pose>
+      <pose>0.535 0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -446,7 +446,7 @@
     </model>
 
     <model name="piece18">
-      <pose>0.535 0.266 0.18 0 0 0</pose>
+      <pose>0.535 0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -502,7 +502,7 @@
     </model>
 
     <model name="piece21">
-      <pose>0.611 -0.266 0.18 0 0 0</pose>
+      <pose>0.611 -0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -558,7 +558,7 @@
     </model>
 
     <model name="piece22">
-      <pose>0.611 -0.19 0.18 0 0 0</pose>
+      <pose>0.611 -0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -614,7 +614,7 @@
     </model>
 
     <model name="piece23">
-      <pose>0.611 -0.114 0.18 0 0 0</pose>
+      <pose>0.611 -0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -670,7 +670,7 @@
     </model>
 
     <model name="piece24">
-      <pose>0.611 -0.038 0.18 0 0 0</pose>
+      <pose>0.611 -0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -726,7 +726,7 @@
     </model>
 
     <model name="piece25">
-      <pose>0.611 0.038 0.18 0 0 0</pose>
+      <pose>0.611 0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -782,7 +782,7 @@
     </model>
 
     <model name="piece26">
-      <pose>0.611 +0.114 0.18 0 0 0</pose>
+      <pose>0.611 +0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -838,7 +838,7 @@
     </model>
 
     <model name="piece27">
-      <pose>0.611 0.19 0.18 0 0 0</pose>
+      <pose>0.611 0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -894,7 +894,7 @@
     </model>
 
     <model name="piece28">
-      <pose>0.611 0.266 0.18 0 0 0</pose>
+      <pose>0.611 0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -951,7 +951,7 @@
 
 
     <model name="piece81">
-      <pose>1.067 -0.266 0.18 0 0 0</pose>
+      <pose>1.067 -0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1007,7 +1007,7 @@
     </model>
 
     <model name="piece82">
-      <pose>1.067 -0.19 0.18 0 0 0</pose>
+      <pose>1.067 -0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1063,7 +1063,7 @@
     </model>
 
     <model name="piece83">
-      <pose>1.067 -0.114 0.18 0 0 0</pose>
+      <pose>1.067 -0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1119,7 +1119,7 @@
     </model>
 
     <model name="piece84">
-      <pose>1.067 -0.038 0.18 0 0 0</pose>
+      <pose>1.067 -0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1175,7 +1175,7 @@
     </model>
 
     <model name="piece85">
-      <pose>1.067 0.038 0.18 0 0 0</pose>
+      <pose>1.067 0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1231,7 +1231,7 @@
     </model>
 
     <model name="piece86">
-      <pose>1.067 +0.114 0.18 0 0 0</pose>
+      <pose>1.067 +0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1287,7 +1287,7 @@
     </model>
 
     <model name="piece87">
-      <pose>1.067 0.19 0.18 0 0 0</pose>
+      <pose>1.067 0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1343,7 +1343,7 @@
     </model>
 
     <model name="piece88">
-      <pose>1.067 0.266 0.18 0 0 0</pose>
+      <pose>1.067 0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1399,7 +1399,7 @@
     </model>
 
     <model name="piece71">
-      <pose>0.991 -0.266 0.18 0 0 0</pose>
+      <pose>0.991 -0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1455,7 +1455,7 @@
     </model>
 
     <model name="piece72">
-      <pose>0.991 -0.19 0.18 0 0 0</pose>
+      <pose>0.991 -0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1511,7 +1511,7 @@
     </model>
 
     <model name="piece73">
-      <pose>0.991 -0.114 0.18 0 0 0</pose>
+      <pose>0.991 -0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1567,7 +1567,7 @@
     </model>
 
     <model name="piece74">
-      <pose>0.991 -0.038 0.18 0 0 0</pose>
+      <pose>0.991 -0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1623,7 +1623,7 @@
     </model>
 
     <model name="piece75">
-      <pose>0.991 0.038 0.18 0 0 0</pose>
+      <pose>0.991 0.038 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1679,7 +1679,7 @@
     </model>
 
     <model name="piece76">
-      <pose>0.991 +0.114 0.18 0 0 0</pose>
+      <pose>0.991 +0.114 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1735,7 +1735,7 @@
     </model>
 
     <model name="piece77">
-      <pose>0.991 0.19 0.18 0 0 0</pose>
+      <pose>0.991 0.19 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1791,7 +1791,7 @@
     </model>
 
     <model name="piece78">
-      <pose>0.991 0.266 0.18 0 0 0</pose>
+      <pose>0.991 0.266 0.33 0 0 0</pose>
       <link name="box">
         <inertial>
           <mass>1</mass>
@@ -1849,7 +1849,7 @@
 
     <include>
       <uri>model://chessboard</uri>
-      <pose>0.8 0 0.00 0 0 1.5708</pose>
+      <pose>0.8 0 0.281 0 0 1.5708</pose>
       <static>1</static>
     </include>
   </world>

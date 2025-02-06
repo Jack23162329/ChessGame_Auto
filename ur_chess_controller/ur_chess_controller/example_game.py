@@ -26,18 +26,18 @@ class ChessRobotController:
                              self.positions[piece[0]-1][piece[1]-1][1] + self.ey + error_y,0.4],0.5,True)
 
     def go_down(self):
-        self.robot.move_straight('vertical', -self.moving, 0.8, n=7, plan=True)
+        self.robot.move_straight('vertical', -self.moving, 1, n=7, plan=True)
     def go_up(self):
-        self.robot.move_straight('vertical', self.moving, 0.8, n=7, plan=True)
+        self.robot.move_straight('vertical', self.moving, 1, n=7, plan=True)
     #g represent grid
     def go_right(self,g):
-        self.robot.move_straight('side',g * -self.moving, 0.8, n=7, plan=True)
+        self.robot.move_straight('side',g * -self.moving, 1, n=7, plan=True)
     def go_left(self,g):
-        self.robot.move_straight('side',g * -self.moving, 0.8, n=7, plan=True)
+        self.robot.move_straight('side',g * -self.moving, 1, n=7, plan=True)
     def go_forward(self,g):
-        self.robot.move_straight('forward',g * -self.moving, 0.8, n=7, plan=True)
+        self.robot.move_straight('forward',g * -self.moving, 1, n=7, plan=True)
     def go_backward(self,g):
-        self.robot.move_straight('forward',g * -self.moving, 0.8, n=7, plan=True)
+        self.robot.move_straight('forward',g * -self.moving, 1, n=7, plan=True)
 
     def piece2piece(self, piece1, piece2, error_y=0):
         """Execute complete chess piece movement"""
@@ -127,7 +127,7 @@ def main():
                 [int(from_square[1]), alpha_number[from_square[0]]], 
                 [int(to_square[1]), alpha_number[to_square[0]]]
             )
-            controller.robot.execute_plan(10, erase=True)
+            controller.robot.execute_plan(15, erase=True)
             print("Reset")
             controller.robot.reset()
                          
