@@ -98,8 +98,7 @@ ChessGame_Auto/
 │  │    ├── chess_robot_node.py # This is for panda manipulator
 │  └──  └── chess_robot_node_UR.py # This is for UR manipulator
 ├── panda_env
-├── ur_chess_controller
-├── ur_env
+├── ur_robot_env
 ├── notes
 └── README.md
 ```
@@ -134,12 +133,12 @@ ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ## For Universal Robots
 Launch the world (Keep the world running):
 ```bash
-ros2 launch ur_env ur_sim_control.launch.py ur_type:=ur10e #(3, 5, 5e, 10, 10e, etc…)
+ros2 launch ur_roobot_env ur_sim_control.launch.py ur_type:=ur10e #(3, 5, 5e, 10, 10e, etc…)
 ```
 For testing movement (ChessWorld must remain running):
 ```bash
 # In another terminal
-ros2 run ur_chess_controller example_game
+ros2 run ur_robot_env ur_move
 ```
 For Reinforcement Learning ChessGame (ChessWorld must remain running):
 
