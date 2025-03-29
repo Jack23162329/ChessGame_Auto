@@ -133,7 +133,7 @@ ros2 run chess_robot_ai chess_robot_node # For receiving RL model
 ## For Universal Robots
 Launch the world (Keep the world running):
 ```bash
-ros2 launch ur_roobot_env ur_sim_control.launch.py ur_type:=ur10e #(3, 5, 5e, 10, 10e, etc…)
+ros2 launch ur_robot_env ur_sim_control.launch.py ur_type:=ur10e #(3, 5, 5e, 10, 10e, etc…)
 ```
 For testing movement (ChessWorld must remain running):
 ```bash
@@ -165,50 +165,57 @@ https://github.com/user-attachments/assets/47fa09a7-7d71-4cb4-9595-e0c2054d9e79
 
 ---
 
-# ChessGame with RL
+RL 棋局遊戲
+😸概述
+本專案在 WSL2 環境下實作，並使用以下 GitHub 倉庫：
 
-## 😸概述
-本專案在 WSL2 環境下開發，使用了以下 GitHub 儲存庫:
-  1. [Chess_manipulator(panda_env)](https://github.com/ZeinBarhoum/chess_manipulator.git)
-  2. [Universal_Robots_ROS2_Gazebo_Simulation(ur_env)](https://github.com/UniversalRobots/Universal_Robots_ROS2_Gazebo_Simulation.git)
-  3. [chess-alpha-zero(強化學習模型)](https://github.com/Zeta36/chess-alpha-zero.git)
+Chess_manipulator(panda_env)
 
-我們使用 ROS2 進行系統控制，Gazebo 進行模擬，開發了一個基於強化學習的西洋棋遊戲系統，讓 Panda 和 UR 機械手臂能與人類對弈。目前已完成系統的基本機制實現。
+Universal_Robots_ROS2_Gazebo_Simulation(ur_env)
 
-## 👍環境需求
-- ROS2 [humble]
-- Ubuntu on WSL2 [22.04.5 LTS]
-- Gazebo [版本 11.10.2]
-- Python 3.8+
+chess-alpha-zero（用於傳送強化學習模型）
 
-注意：本專案依賴多個 ROS2 和 Gazebo 套件。具體需求可能因系統配置而異，如遇到錯誤請安裝相應套件。
+我們的目標是利用 ROS2 進行系統控制，並藉由 Gazebo 進行模擬，創造一個由 Panda 與 UR 機械手臂與人類對弈的強化學習棋局遊戲。目前，我們已實作系統的基本機制。
 
-## 環境設置
-請將以下指令加入您的 ~/.bashrc 檔案（通常位於工作區內）：
-```bash
-# ROS2 和開發工具
+👍先決條件
+ROS2 [humble]
+
+在 WSL2 上執行的 Ubuntu [22.04.5 LTS]
+
+Gazebo [版本 11.10.2]
+
+Python 3.8+
+
+先決條件說明：本專案依賴多個 ROS2 與 Gazebo 套件，具體需求可能會根據您的系統配置和需求有所不同，若遇到錯誤請下載相應的套件。
+此外，若您希望使用 UR 機械手臂，則必須安裝 Universal_Robots_ROS2_Gazebo_Simulation 倉庫中所列的所有依賴項。
+
+環境設置
+請在您的 ~/.bashrc 中加入以下行（通常位於您的工作區中）：
+
+bash
+複製
+# ROS2 與開發工具
 source /opt/ros/humble/setup.bash
 source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
 
 # 工作區
 source ~/ros2_ws/install/setup.bash
 
-# WSL2 顯示設置
+# WSL2 顯示設定
 export DISPLAY=:0
-```
+🚀快速安裝指南
+為避免環境衝突，我們需要為本專案建立 Ubuntu 與 Anaconda 兩個環境。
 
-## 🚀快速安裝指南
-本專案需要同時建立 Ubuntu 和 Anaconda 環境以避免環境衝突。
-
-Ubuntu 環境：
-```bash
-# 進入 ROS2 工作區
-cd ros2_ws # 請改為您的工作區名稱
+對於 Ubuntu：
+bash
+複製
+# 進入您的 ros2 工作區
+cd ros2_ws  # 請根據您的工作區名稱修改
 
 # 進入 src 目錄
 cd src
 
-# 克隆儲存庫
+# 複製倉庫
 git clone git@github.com:Jack23162329/ChessGame_Auto.git
 
 # 返回工作區目錄
@@ -217,38 +224,37 @@ cd ..
 # 建置工作區
 colcon build
 source install/setup.bash
-```
+對於 Anaconda：
+安裝流程參考 chess-alpha-zero 倉庫。
+詳情
 
-Anaconda 環境：
-請依照 chess-alpha-zero 儲存庫的說明進行安裝。
-[詳細說明](https://github.com/Zeta36/chess-alpha-zero.git)
-```bash
+bash
+複製
 conda create -n env_name python=3.6.3
 conda activate env_name
 conda install tensorflow-gpu=1.3.0
 conda install keras=2.0.8
-```
+建立 Anaconda 環境後（複製倉庫）：
 
-建立 Anaconda 環境後（克隆儲存庫）：
-```bash
-cd [路徑] # 選擇要安裝儲存庫的位置
-git@github.com:Zeta36/chess-alpha-zero.git
-```
+bash
+複製
+cd [path]  # 您希望安裝倉庫的目錄
+git clone git@github.com:Zeta36/chess-alpha-zero.git
+下載 chess-alpha-zero 的需求套件：
 
-安裝 chess-alpha-zero 所需套件：
-```bash
+bash
+複製
 pip install -r requirements.txt
-```
-
-## 專案結構
-完成安裝後，需將 `chess_model_server.py` 從 Ubuntu 環境複製到 Anaconda 環境（chess-alpha-zero）中。專案結構如下：
+專案結構
+安裝完成後，我們需要將 chess_model_server.py 從 Ubuntu 移至您的 Anaconda 環境（chess-alpha-zero），專案結構如下所示：
 
 👽Anaconda (chess-alpha-zero)
-```bash
-# 僅說明 chess_model_server.py 的放置位置
+bash
+複製
+# 此處指示將 chess_model_server.py 放置的位置
 chess-alpha-zero/
 ├── src/
-│   ├── chess_model_server.py # 放置於此
+│   ├── chess_model_server.py  # 放置於此
 │   ├── __init__.py
 │   └── chess_zero
 ├── notebooks
@@ -256,89 +262,81 @@ chess-alpha-zero/
 ├── binder
 ├── requirements.txt
 └── readme.md
-```
-
 👾Ubuntu
-```bash
+bash
+複製
 ChessGame_Auto/
 ├── chess_robot_ai/
 │   ├── chess_robot_ai/
-│   │    ├── chess_robot_node.py # Panda 機械手臂控制程式
-│   └──  └── chess_robot_node_UR.py # UR 機械手臂控制程式
+│   │   ├── chess_robot_node.py  # 用於 Panda 機械手臂
+│   └── └── chess_robot_node_UR.py  # 用於 UR 機械手臂
 ├── panda_env
-├── ur_chess_controller
-├── ur_env
+├── ur_robot_env
 ├── notes
 └── README.md
-```
+🐈快速啟動
+完成所有設定後：
 
-# 🐈快速開始
-環境設置完成後：
+適用於 Franka Emika Panda 機械手臂
+啟動模擬世界（請保持世界模擬持續運行）：
 
-## Franka Emika Panda 機器人
-啟動模擬環境（保持運行）：
-```bash
+bash
+複製
 ros2 launch panda_env simulation.launch.py
-```
+測試運動（ChessWorld 必須保持運行）：
 
-測試移動功能（需保持模擬環境運行）：
-```bash
-# 在新終端中執行
+bash
+複製
+# 在另一個終端機中執行
 ros2 run panda_env example_game
-```
+啟動強化學習棋局遊戲（ChessWorld 必須保持運行）：
 
-運行強化學習西洋棋遊戲（需保持模擬環境運行）：
-
-👽Anaconda 環境：
-```bash
-# 在 Anaconda 環境中執行
+👽Anaconda：
+bash
+複製
+# 請在您的 Anaconda 環境中啟動
 conda activate env_name
-cd chess-alpha-zero\src # 進入儲存庫安裝位置
-python chess_model_server.py # 啟動伺服器，發送強化學習模型
-```
+cd chess-alpha-zero\src  # 進入倉庫安裝目錄
+python chess_model_server.py  # 啟動 RL 模型伺服器，傳送 RL 模型
+👾Ubuntu：
+bash
+複製
+# 在另一個終端機中執行
+ros2 run chess_robot_ai chess_robot_node  # 用於接收 RL 模型
+適用於 Universal Robots
+啟動模擬世界（請保持世界模擬持續運行）：
 
-👾Ubuntu 環境：
-```bash
-# 在新終端中執行
-ros2 run chess_robot_ai chess_robot_node # 接收強化學習模型
-```
+bash
+複製
+ros2 launch ur_robot_env ur_sim_control.launch.py ur_type:=ur10e  # (可選型號：3, 5, 5e, 10, 10e 等)
+測試運動（ChessWorld 必須保持運行）：
 
-## Universal Robots
-啟動模擬環境（保持運行）：
-```bash
-ros2 launch ur_env ur_sim_control.launch.py ur_type:=ur10e #(可選 3, 5, 5e, 10, 10e 等型號)
-```
+bash
+複製
+# 在另一個終端機中執行
+ros2 run ur_robot_env ur_move
+啟動強化學習棋局遊戲（ChessWorld 必須保持運行）：
 
-測試移動功能（需保持模擬環境運行）：
-```bash
-# 在新終端中執行
-ros2 run ur_chess_controller example_game
-```
-
-運行強化學習西洋棋遊戲（需保持模擬環境運行）：
-
-👽Anaconda 環境：
-```bash
-# 在 Anaconda 環境中執行
+👽Anaconda：
+bash
+複製
+# 請在您的 Anaconda 環境中啟動
 conda activate env_name
-cd chess-alpha-zero\src # 進入儲存庫安裝位置
-python chess_model_server.py # 啟動伺服器，發送強化學習模型
-```
+cd chess-alpha-zero\src  # 進入倉庫安裝目錄
+python chess_model_server.py  # 啟動 RL 模型伺服器，傳送 RL 模型
+👾Ubuntu：
+bash
+複製
+# 在另一個終端機中執行
+ros2 run chess_robot_ai chess_robot_node_ur  # 用於接收 RL 模型
+▶️示範
+嘗試使用強化學習進行自動棋局對弈
 
-👾Ubuntu 環境：
-```bash
-# 在新終端中執行
-ros2 run chess_robot_ai chess_robot_node_ur # 接收強化學習模型
-```
+示範連結
 
-## ▶️演示
-嘗試使用強化學習進行自動西洋棋對弈
+已知問題
+由於尚未實作棋子抓取功能，我們無法與 KNIGHT（騎士）、BISHOP（主教）及其他棋子進行對弈。
 
-https://github.com/user-attachments/assets/47fa09a7-7d71-4cb4-9595-e0c2054d9e79
-
-## 已知問題
-1. 目前無法操作騎士、主教等棋子，因為尚未實現抓取這些棋子的功能。
-2. 由於機械手臂工作空間的限制，無法觸及棋盤最後一行（a8, b8 等位置）。
-```
+由於機械手臂工作範圍的限制，我們無法觸及棋盤的最末一行（如 a8, b8 等）。(已透過使用 UR 機械手臂解決此問題)
 
 
