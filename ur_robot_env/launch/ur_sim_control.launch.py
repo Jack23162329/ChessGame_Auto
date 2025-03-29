@@ -69,7 +69,7 @@ def launch_setup(context, *args, **kwargs):
     )
 
     # Add model path for chess pieces
-    chess_pkg = get_package_share_directory('panda_env')
+    chess_pkg = get_package_share_directory('ur_robot_env')
     chess_models = os.path.join(chess_pkg, 'models')
     if 'GAZEBO_MODEL_PATH' in os.environ:
         os.environ['GAZEBO_MODEL_PATH'] = os.environ['GAZEBO_MODEL_PATH'] + ':' + chess_models
@@ -194,7 +194,7 @@ def launch_setup(context, *args, **kwargs):
     )
 
     world_file = os.path.join(
-        get_package_share_directory('ur_env'),
+        get_package_share_directory('ur_robot_env'),
         'worlds',
         'chesset.world'
     )
@@ -269,7 +269,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "runtime_config_package",
-            default_value="ur_env",
+            default_value="ur_robot_env",
             description='Package with the controller\'s configuration in "config" folder. \
         Usually the argument is not set, it enables use of a custom setup.',
         )

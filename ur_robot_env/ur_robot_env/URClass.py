@@ -68,12 +68,12 @@ class ur10_6dof(UR10):
         if(plan):
             self.plan.extend(qs)
         else:
-            os.system(f'ros2 run ur_chess_controller multi_point_controller {int(n)} {int(dt*1e9)} {self.string_qs(qs)}')
+            os.system(f'ros2 run ur_robot_env multi_point_controller {int(n)} {int(dt*1e9)} {self.string_qs(qs)}')
         self.update(qs[-1])
         self.p = p
     def set_q(self, q, t):
         self.update(q)
-        os.system(f'ros2 run ur_chess_controller multi_point_controller 1 {int(t*1e9)} {self.string_q(q)} ')
+        os.system(f'ros2 run ur_robot_env multi_point_controller 1 {int(t*1e9)} {self.string_q(q)} ')
 
     def update(self,q):
         self.q = q
@@ -89,14 +89,14 @@ class ur10_6dof(UR10):
         if(plan):
             self.plan.extend([q])
         else:
-            os.system(f'ros2 run ur_chess_controller multi_point_controller 1 {int(t*1e9)} {self.string_q(q)}')
+            os.system(f'ros2 run ur_robot_env multi_point_controller 1 {int(t*1e9)} {self.string_q(q)}')
         self.update(q)
 
     def execute_plan(self,t,erase = True):
         qs = self.plan
         n = len(qs)
         dt = t/n
-        os.system(f'ros2 run ur_chess_controller multi_point_controller {n} {int(dt*1e9)} {self.string_qs(qs)}')
+        os.system(f'ros2 run ur_robot_env multi_point_controller {n} {int(dt*1e9)} {self.string_qs(qs)}')
         self.update(qs[-1])
         if(erase):
             self.plan = []
@@ -139,7 +139,7 @@ class ur10_6dof(UR10):
         else:
             dt = t/n
             for step in steps:
-                os.system(f'ros2 run ur_chess_controller multi_point_controller 1 {int(dt*1e9)} {self.string_q(step)}')
+                os.system(f'ros2 run ur_robot_env multi_point_controller 1 {int(dt*1e9)} {self.string_q(step)}')
                 self.update(step)
 
 

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ur_chess_controller</name>
+  <name>ur_robot_env</name>
   <version>0.0.0</version>
-  <description>UR10 chess control package</description>
-  <maintainer email="your@email.com">your_name</maintainer>
-  <license>Apache License 2.0</license>
+  <description>TODO: Package description</description>
+  <maintainer email="jack23162329@gmail.com">jack</maintainer>
+  <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
-  <depend>ur_simulation_gazebo</depend>
-  <depend>control_msgs</depend>
-  <depend>trajectory_msgs</depend>
+  <depend>ros2_control</depend>
+  <depend>ros2_controllers</depend>
+  <depend>gazebo_ros2_control</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

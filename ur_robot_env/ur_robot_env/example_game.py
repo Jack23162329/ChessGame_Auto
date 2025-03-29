@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from ur_chess_controller.URClass import ur10_6dof
+from ur_robot_env.URClass import ur10_6dof
 import numpy as np
 import time
 
