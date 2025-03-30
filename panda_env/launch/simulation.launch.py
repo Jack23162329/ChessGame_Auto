@@ -8,7 +8,7 @@ from launch.actions import SetEnvironmentVariable
 import xacro
 
 
-def generate_launch_description():
+def generate_launch_description():  
 
     pkg_name = 'panda_env'  # the package name
 

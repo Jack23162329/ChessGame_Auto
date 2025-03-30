@@ -61,7 +61,7 @@ def launch_setup(context, *args, **kwargs):
     prefix = LaunchConfiguration("prefix")
     start_joint_controller = LaunchConfiguration("start_joint_controller")
     initial_joint_controller = LaunchConfiguration("initial_joint_controller")
-    # launch_rviz = LaunchConfiguration("launch_rviz")
+    launch_rviz = LaunchConfiguration("launch_rviz")
     gazebo_gui = LaunchConfiguration("gazebo_gui")
 
     initial_joint_controllers = PathJoinSubstitution(
@@ -76,9 +76,9 @@ def launch_setup(context, *args, **kwargs):
     else:
         os.environ['GAZEBO_MODEL_PATH'] = chess_models
 
-    # rviz_config_file = PathJoinSubstitution(
-    #     [FindPackageShare(description_package), "rviz", "view_robot.rviz"]
-    # )
+    rviz_config_file = PathJoinSubstitution(
+        [FindPackageShare(description_package), "rviz", "view_robot.rviz"]
+    )
 
     # gripper_xacro = os.path.join(get_package_share_directory('ur_gripper_description'), 
     #                         'urdf', 'gripper.urdf.xacro')
@@ -134,14 +134,14 @@ def launch_setup(context, *args, **kwargs):
         parameters=[{"use_sim_time": True}, robot_description],
     )
 
-    # rviz_node = Node(
-    #     package="rviz2",
-    #     executable="rviz2",
-    #     name="rviz2",
-    #     output="log",
-    #     arguments=["-d", rviz_config_file],
-    #     condition=IfCondition(launch_rviz),
-    # )
+    rviz_node = Node(
+        package="rviz2",
+        executable="rviz2",
+        name="rviz2",
+        output="log",
+        arguments=["-d", rviz_config_file],
+        condition=IfCondition(launch_rviz),
+    )
 
     joint_state_broadcaster_spawner = Node(
         package="controller_manager",
@@ -149,35 +149,15 @@ def launch_setup(context, *args, **kwargs):
         arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
     )
 
-    # gripper_controller_params = os.path.join(
-    #     get_package_share_directory('ur_gripper_description'),
-    #     'config',
-    #     'gripper_controllers.yaml'
-    # )
-
-    # for gripper
-    # gripper_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=[
-    #         "gripper_controller",
-    #         "-c", "/controller_manager",
-    #         "--turned-on"  # This should make it start activated
-    #     ],
-    #     parameters=[{
-    #         'autostart': True,
-    #         'controller_configurations_file': gripper_controller_params
-    #     }],
-    #     output="screen",
-    # )
+    
     # Delay rviz start after `joint_state_broadcaster`
-    # delay_rviz_after_joint_state_broadcaster_spawner = RegisterEventHandler(
-    #     event_handler=OnProcessExit(
-    #         target_action=joint_state_broadcaster_spawner,
-    #         on_exit=[rviz_node],
-    #     ),
-    #     condition=IfCondition(launch_rviz),
-    # )
+    delay_rviz_after_joint_state_broadcaster_spawner = RegisterEventHandler(
+        event_handler=OnProcessExit(
+            target_action=joint_state_broadcaster_spawner,
+            on_exit=[rviz_node],
+        ),
+        condition=IfCondition(launch_rviz),
+    )
 
     # There may be other controllers of the joints, but this is the initially-started one
     initial_joint_controller_spawner_started = Node(
@@ -199,7 +179,7 @@ def launch_setup(context, *args, **kwargs):
         'chesset.world'
     )
 
-    # Gazebo nodes
+    # Gazebo nodes = ros2 launch gazebo_ros gazebo.launch.py 
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [FindPackageShare("gazebo_ros"), "/launch", "/gazebo.launch.py"]
@@ -222,7 +202,7 @@ def launch_setup(context, *args, **kwargs):
     nodes_to_start = [
         robot_state_publisher_node,
         joint_state_broadcaster_spawner,
-        # delay_rviz_after_joint_state_broadcaster_spawner,
+        delay_rviz_after_joint_state_broadcaster_spawner,
         initial_joint_controller_spawner_stopped,
         initial_joint_controller_spawner_started,
         # gripper_controller_spawner, # for gripper
@@ -284,7 +264,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "description_package",
-            default_value="ur_description",
+            default_value="ur_robot_env",
             description="Description package with robot URDF/XACRO files. Usually the argument \
         is not set, it enables use of a custom description.",
         )
@@ -319,9 +299,9 @@ def generate_launch_description():
             description="Robot controller to start.",
         )
     )
-    # declared_arguments.append(
-    #     DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
-    # )
+    declared_arguments.append(
+        DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
+    )
     declared_arguments.append(
         DeclareLaunchArgument(
             "gazebo_gui", default_value="true", description="Start gazebo with GUI?"
