@@ -13,13 +13,12 @@
       <uri>model://ground_plane</uri>
       <pose>0 0 0 0 0 0</pose>
     </include>
-    <!-- <model name="ur10_robot">
-      <include>
-        <uri>model://ur10</uri>
-        <pose>-0.2 0 0.0 0 0 0</pose>
-        <static>false</static>
-      </include>
-    </model> -->
+    
+    <include>
+      <uri>model://bishop_white</uri>
+      <pose>0.535 -0.266 0.33 0 0 0</pose>
+    </include>
+
     <model name='table'>
       <static>1</static>
       <pose>0.8 0 0.15 0 0 0</pose>
@@ -53,61 +52,7 @@
       </link>
     </model>
 
-    <model name="piece11">
-      <pose>0.535 -0.266 0.33 0 0 0</pose>
-      <link name="box">
-        <inertial>
-          <mass>1</mass>
-          <inertia>
-            <ixx>2</ixx>
-            <ixy>0.0</ixy>
-            <ixz>0.0</ixz>
-            <iyy>2</iyy>
-            <iyz>0.0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <visual name="first">
-          <pose>0 0 0 0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.015 0.015 0.04</size>
-            </box>
-          </geometry>
-        </visual>
-
-        <collision name="first">
-          <pose>0 0 0 0 0 0</pose>
-          <geometry>
-            <box>
-              <size>0.01 0.01 0.04</size>
-            </box>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <slip1>0.1</slip1>
-                <slip2>0</slip2>
-                <mu>10</mu>
-                <mu2>10</mu2>
-                <!-- <fdir1>0 0 0</fdir1> -->
-              </ode>
-            </friction>
-
-            <contact>
-              <ode>
-                <kp>10000.0</kp>
-                <kd>1.0</kd>
-                <min_depth>0</min_depth>
-                <!-- <max_vel>1.0</max_vel> -->
-              </ode>
-            </contact>
-
-          </surface>
-        </collision>
-
-      </link>
-    </model>
+  
 
     <model name="piece12">
       <pose>0.535 -0.19 0.33 0 0 0</pose>
