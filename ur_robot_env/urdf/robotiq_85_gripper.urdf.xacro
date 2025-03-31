@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- 簡化版 robotiq 夾爪，利用原始檔內容改寫，使用 prismatic 或 revolute（此版本保留原來的 continuous/revolute 結構） -->
+  <!-- <xacro:property name="pi" value="3.14159"/> -->
+  
+  <!-- 此 macro 接受 3 個參數：connected_to, offset_xyz, offset_rpy -->
+  <xacro:macro name="robotiq_gripper" params="connected_to offset_xyz offset_rpy">
+  <!-- <xacro:include filename="$(find ur_robot_env)/urdf/robotiq_85_gripper.transmission.xacro" /> -->
+  
+    <!-- 固定關節將夾爪基座接到父連結 -->
+    <joint name="robotiq_85_base_joint" type="fixed">
+      <parent link="${connected_to}"/>
+      <child link="robotiq_85_base_link"/>
+      <origin xyz="${offset_xyz}" rpy="${offset_rpy}"/>
+    </joint>
+    
+    <!-- 基座 -->
+    <link name="robotiq_85_base_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/visual/robotiq_85_base_link.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/collision/robotiq_85_base_link.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.636951" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.000380" ixy="0.0" ixz="0.0"
+                 iyx="0.0" iyy="0.001110" iyz="0.0"
+                 izx="0.0" izy="0.0" izz="0.001171" />
+      </inertial>
+    </link>
+    
+    <!-- 左手側指節 -->
+    <joint name="robotiq_85_left_knuckle_joint" type="revolute">
+      <parent link="robotiq_85_base_link"/>
+      <child link="robotiq_85_left_knuckle_link"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="3.14 0 0" xyz="0.05490451627 0.03060114443 0"/>
+      <limit lower="0" upper="0.804" velocity="2.0" effort="1000"/>
+    </joint>
+    
+    <joint name="robotiq_85_right_knuckle_joint" type="continuous">
+      <parent link="robotiq_85_base_link"/>
+      <child link="robotiq_85_right_knuckle_link"/>
+      <axis xyz="0 0 1"/>
+      <origin rpy="0 0 0" xyz="0.05490451627 -0.03060114443 0"/>
+      <limit lower="-3.14" upper="3.14" velocity="100.0" effort="1000"/>
+      <mimic joint="robotiq_85_left_knuckle_joint"/>
+    </joint>
+    
+    <link name="robotiq_85_left_knuckle_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/visual/robotiq_85_knuckle_link.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/collision/robotiq_85_knuckle_link.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.018491" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.000009" ixy="-0.000001" ixz="0"
+                 iyx="-0.000001" iyy="0.000001" iyz="0"
+                 izx="0" izy="0" izz="0.000010" />
+      </inertial>
+    </link>
+    
+    <link name="robotiq_85_right_knuckle_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/visual/robotiq_85_knuckle_link.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/collision/robotiq_85_knuckle_link.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.018491" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.000009" ixy="-0.000001" ixz="0"
+                 iyx="-0.000001" iyy="0.000001" iyz="0"
+                 izx="0" izy="0" izz="0.000010" />
+      </inertial>
+    </link>
+    
+    <!-- 左指關節 -->
+    <joint name="robotiq_85_left_finger_joint" type="continuous">
+      <parent link="robotiq_85_left_knuckle_link"/>
+      <child link="robotiq_85_left_finger_link"/>
+      <origin xyz="-0.00408552455 -0.03148604435 0" rpy="0 0 0" />
+    </joint>
+    
+    <!-- 右指關節 -->
+    <joint name="robotiq_85_right_finger_joint" type="continuous">
+      <parent link="robotiq_85_right_knuckle_link"/>
+      <child link="robotiq_85_right_finger_link"/>
+      <origin xyz="-0.00408552455 -0.03148604435 0" rpy="0 0 0" />
+    </joint>
+    
+    <link name="robotiq_85_left_finger_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/visual/robotiq_85_finger_link.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/collision/robotiq_85_finger_link.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.027309" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.000003" ixy="-0.000002" ixz="0"
+                 iyx="0" iyy="0.000021" iyz="0"
+                 izx="0" izy="0" izz="0.000020" />
+      </inertial>
+    </link>
+    
+    <link name="robotiq_85_right_finger_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/visual/robotiq_85_finger_link.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://ur_robot_env/meshes/collision/robotiq_85_finger_link.stl"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.027309" />
+        <origin xyz="0 0 0" />
+        <inertia ixx="0.000003" ixy="-0.000002" ixz="0"
+                 iyx="0" iyy="0.000021" iyz="0"
+                 izx="0" izy="0" izz="0.000020" />
+      </inertial>
+    </link>
+    
+    <!-- 這裡不再包含 transmission，若有需要可另外 include transmission 檔 -->
+  
+  </xacro:macro>
+</robot>

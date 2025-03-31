@@ -88,8 +88,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -144,8 +144,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -200,8 +200,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -255,8 +255,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -311,8 +311,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -368,8 +368,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -424,8 +424,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -480,8 +480,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -536,8 +536,8 @@
               <ode>
                 <slip1>0.3</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -592,8 +592,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -648,8 +648,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -704,8 +704,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -760,8 +760,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -816,8 +816,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -872,8 +872,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -928,8 +928,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -985,8 +985,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1041,8 +1041,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1097,8 +1097,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1153,8 +1153,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1209,8 +1209,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1265,8 +1265,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1321,8 +1321,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1377,8 +1377,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1433,8 +1433,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1489,8 +1489,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1545,8 +1545,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1601,8 +1601,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1657,8 +1657,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1713,8 +1713,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1769,8 +1769,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>
@@ -1825,8 +1825,8 @@
               <ode>
                 <slip1>0.1</slip1>
                 <slip2>0</slip2>
-                <mu>1</mu>
-                <mu2>0</mu2>
+                <mu>10</mu>
+                <mu2>10</mu2>
                 <!-- <fdir1>0 0 0</fdir1> -->
               </ode>
             </friction>

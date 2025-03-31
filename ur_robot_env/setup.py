@@ -19,6 +19,9 @@ setup(
         ('share/' + package_name, ['package.xml']),
         
         (os.path.join('share',package_name,'urdf'),glob('urdf/*.xacro')),
+        (os.path.join('share',package_name,'urdf','inc'),glob('urdf/inc/*.xacro')),
+        (os.path.join('share',package_name,'meshes','collision'),glob('meshes/collision/*.stl')),
+        (os.path.join('share',package_name,'meshes','visual'),glob('meshes/visual/*.dae')),
         (os.path.join('share',package_name,'rviz'),glob('rviz/*.rviz')),
         (os.path.join('share',package_name,'launch'),glob('launch/*.launch.*')),
         (os.path.join('share',package_name,'config'),glob('config/*.yaml')),

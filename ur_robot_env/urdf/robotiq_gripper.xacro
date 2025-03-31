@@ -4,8 +4,10 @@
    <xacro:arg name="name" default="ur"/>
    <!-- import main macro -->
    <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
-   <!-- importa panda hand -->
-   <xacro:include filename="$(find panda_env)/description/panda_hand.xacro" />
+   <!-- import panda hand -->
+   <!-- <xacro:include filename="$(find panda_env)/description/panda_hand.xacro" /> -->
+   <!-- import simple gripper -->
+   <xacro:include filename="$(find ur_robot_env)/urdf/robotiq_85_gripper.urdf.xacro"/>
 
    <!-- possible 'ur_type' values: ur3, ur3e, ur5, ur5e, ur7e, ur10, ur10e, ur12e, ur16e, ur20, ur30 -->
    <!-- the default value should raise an error in case this was called without defining the type -->
@@ -127,9 +129,10 @@
      trajectory_port="$(arg trajectory_port)"
      >
      <origin xyz="0 0 0" rpy="0 0 0" />          <!-- position robot in the world -->
+
    </xacro:ur_robot>
    <!-- call panda hand -->
-   <xacro:panda_hand ns="UR" rpy="0 0 ${-pi/4}" connected_to="wrist_3_link" />
+   <xacro:robotiq_gripper connected_to="wrist_3_link" offset_xyz="0 0 0.1" offset_rpy="0 0 0"/>
   
    <xacro:if value="$(arg sim_gazebo)">
     <!-- Gazebo plugins -->
@@ -152,6 +155,14 @@
         <controller_manager_node_name>$(arg tf_prefix)controller_manager</controller_manager_node_name>
       </plugin>
     </gazebo>
+
+    <gazebo>
+      <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+        <robot_param>robot_description</robot_param>
+        <parameters>$(find ur_robot_env)/config/robotiq_controllers.yaml</parameters>
+      </plugin>
+    </gazebo>
+
   </xacro:if>
 
 </robot>

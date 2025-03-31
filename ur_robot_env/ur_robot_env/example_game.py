@@ -1,7 +1,28 @@
 #!/usr/bin/env python3
-from ur_robot_env.URClass import ur10_6dof
-import numpy as np
 import time
+import numpy as np
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import Float64MultiArray
+from ur_robot_env.URClass import ur10_6dof
+
+# This helper function will publish the gripper command once.
+def publish_gripper_command_once(command_data):
+    """
+    Publishes a gripper command once to the '/gripper_effort_controller/commands' topic.
+    :param command_data: A list of effort values, e.g. [-0.25, 0.25]
+    """
+    rclpy.init(args=None)
+    node = Node('gripper_command_publisher')
+    publisher = node.create_publisher(Float64MultiArray, '/gripper_effort_controller/commands', 10)
+    msg = Float64MultiArray()
+    msg.data = command_data
+    node.get_logger().info("Publishing gripper command: " + str(command_data))
+    publisher.publish(msg)
+    # Wait a short time to ensure the message is sent.
+    time.sleep(1)
+    node.destroy_node()
+    rclpy.shutdown()
 
 class ChessRobotController:
     def __init__(self):
@@ -17,64 +38,89 @@ class ChessRobotController:
         positions = [[[0,0] for i in range(8)] for j in range(8)]
         for i in range(8):
             for j in range(8):
-                positions[i][j][0] = -(self.x0 + i*self.dx + 0.30) # change it if you change the position of the chessworld
+                positions[i][j][0] = -(self.x0 + i*self.dx + 0.30) # change it if you change the position of the chess world
                 positions[i][j][1] = -(self.y0 + j*self.dx)
         return positions
 
-    def go_to_piece(self, piece,error_y = 0):
+    def go_to_piece(self, piece, error_y=0):
         self.robot.move_to_pos_1step([self.positions[piece[0]-1][piece[1]-1][0],
-                             self.positions[piece[0]-1][piece[1]-1][1] + self.ey + error_y,0.4],0.5,True)
+                                        self.positions[piece[0]-1][piece[1]-1][1] + self.ey + error_y,
+                                        0.4], 0.5, True)
 
     def go_down(self):
-        self.robot.move_straight('vertical', -self.moving, 1, n=7, plan=True)
+        self.robot.move_straight('vertical', -self.moving, 1, n=3, plan=True)
     def go_up(self):
-        self.robot.move_straight('vertical', self.moving, 1, n=7, plan=True)
-    #g represent grid
-    def go_right(self,g):
-        self.robot.move_straight('side',g * -self.moving, 1, n=7, plan=True)
-    def go_left(self,g):
-        self.robot.move_straight('side',g * -self.moving, 1, n=7, plan=True)
-    def go_forward(self,g):
-        self.robot.move_straight('forward',g * -self.moving, 1, n=7, plan=True)
-    def go_backward(self,g):
-        self.robot.move_straight('forward',g * -self.moving, 1, n=7, plan=True)
+        self.robot.move_straight('vertical', self.moving, 1, n=3, plan=True)
+    # g represent grid
+    def go_right(self, g):
+        self.robot.move_straight('side', g * -self.moving, 1, n=7, plan=True)
+    def go_left(self, g):
+        self.robot.move_straight('side', g * -self.moving, 1, n=7, plan=True)
+    def go_forward(self, g):
+        self.robot.move_straight('forward', g * -self.moving, 1, n=7, plan=True)
+    def go_backward(self, g):
+        self.robot.move_straight('forward', g * -self.moving, 1, n=7, plan=True)
 
     def piece2piece(self, piece1, piece2, error_y=0):
-        """Execute complete chess piece movement"""
-        # epsilon = 1e-6
+        """Execute complete chess piece movement with proper delays."""
         print("Starting movement sequence...")
         
         # Step 1: Move to source position
         print("Moving to source position...")
         self.go_to_piece(piece1, error_y)
-        
-        # Step 2: Go down to grab piece
-        # print("Going down...")
-        self.go_down()
+        self.robot.execute_plan(5, erase=True)
+        time.sleep(2.0)  # Wait for the motion to finish
 
-        # Calculate movement
+        # Step 2: Lower to grasp position
+        print("Lowering to grasp position...")
+        self.go_down()
+        self.robot.execute_plan(5, erase=True)
+        time.sleep(2.0)  # Wait until the robot is lowered
+
+        # Step 3: Close gripper to grasp piece
+        print("Closing gripper to grasp piece...")
+        publish_gripper_command_once([-0.25, 0.25])
+        time.sleep(1.0)  # Wait for the gripper to close
+
+        # Step 4: Raise the robot with the piece
+        print("Raising with the piece...")
+        self.go_up()
+        self.robot.execute_plan(5, erase=True)
+        time.sleep(2.0)
+
+        # Step 5: Move from source to destination
         delta_x = piece2[0] - piece1[0]
         delta_y = piece2[1] - piece1[1]
-        print(f"delta_x :{delta_x}, delta_y :{delta_y}")
-
-        if delta_x > 0: #which means we need to move forwarddet
+        print(f"Moving: delta_x = {delta_x}, delta_y = {delta_y}")
+        if delta_x > 0:
             self.go_forward(delta_x)
         elif delta_x < 0:
             self.go_backward(delta_x)
-        else:
-            pass
-        
         if delta_y > 0:
             self.go_right(delta_y)
         elif delta_y < 0:
             self.go_left(delta_y)
-        else:
-            pass
+        self.robot.execute_plan(5, erase=True)
+        time.sleep(2.0)
 
-        self.go_up()    
-       
+        # Step 6: Lower to placement position
+        print("Lowering to place the piece...")
+        self.go_down()
+        self.robot.execute_plan(5, erase=True)
+        time.sleep(2.0)
+
+        # Step 7: Open gripper to release piece
+        print("Opening gripper to release piece...")
+        publish_gripper_command_once([0.25, -0.25])
+        time.sleep(1.0)
+
+        # Step 8: Raise the robot after releasing the piece
+        self.go_up()
+        
         print("Movement sequence completed!")
         return True
+
+
 
 def main():
     controller = ChessRobotController()
@@ -83,24 +129,17 @@ def main():
         'e': 4, 'f': 3, 'g': 2, 'h': 1
     }
 
-    # for i in range(1, 8+1):
-    #     for j in range(1, 8+1):
-    #         controller.go_to_piece([j, i])
-    #         controller.robot.execute_plan(5, erase=True)
-    #         print("Reset")
-    #         controller.robot.reset()
-
-
     while True:
         try:
-            move = input("Enter move (e.g. 'd2 to d4' or 'd2d4', or 'quit' to exit, 'reset' to reset: ").lower().strip()
+            move = input("Enter move (e.g. 'd2 to d4' or 'd2d4', or 'quit' to exit, 'reset' to reset): ").lower().strip()
             
             if move == 'quit':
                 print("Exiting program...")
                 break
             if move == 'reset':
-                print("reseting the robot")
+                print("Resetting the robot...")
                 controller.robot.reset()
+                continue
             
             # Parse move
             if ' to ' in move:
@@ -127,18 +166,10 @@ def main():
                 [int(from_square[1]), alpha_number[from_square[0]]], 
                 [int(to_square[1]), alpha_number[to_square[0]]]
             )
-            controller.robot.execute_plan(15, erase=True)
+            controller.robot.execute_plan(5, erase=True)
             print("Reset")
             controller.robot.reset()
                          
         except KeyboardInterrupt:
             print("\nProgram interrupted. Stopping safely...")
-            controller.robot.stop()
-            controller.robot.reset()
-            break
-        except Exception as e:
-            print(f"Error executing move: {str(e)}")
-            print("Please try again.")
-
-if __name__ == '__main__':
-    main()
+            controller.robot.stop
