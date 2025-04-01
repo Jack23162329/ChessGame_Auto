@@ -74,24 +74,24 @@ class ChessRobotController:
         # Step 1: Move to source position
         print("Moving to source position...")
         self.go_to_piece(piece1, error_y)
-        self.robot.execute_plan(5, erase=True)
+        self.robot.execute_plan(2, erase=True)
         time.sleep(1.0)
 
         # Step 2: Lower to grasp position
         print("Lowering to grasp position...")
         self.go_down()
-        self.robot.execute_plan(5, erase=True)
+        self.robot.execute_plan(2, erase=True)
         time.sleep(2.0)
 
         # Step 3: Close gripper to grasp the piece
         print("Closing gripper to grasp piece...")
-        self.gripper_publisher.publish_command([-0.75, 0.75])
+        self.gripper_publisher.publish_command([-0.95, 0.95])
         time.sleep(2.0)
 
         # Step 4: Raise with the piece
         print("Raising with the piece...")
         self.go_up()
-        self.robot.execute_plan(5, erase=True)
+        self.robot.execute_plan(2, erase=True)
         time.sleep(2.0)
 
         # Step 5: Move from source to destination
@@ -110,7 +110,7 @@ class ChessRobotController:
         # Step 6: Lower to placement position
         print("Lowering to place the piece...")
         self.go_down()
-        self.robot.execute_plan(5, erase=True)
+        self.robot.execute_plan(2, erase=True)
         time.sleep(2.0)
 
         # Step 7: Open gripper to release the piece

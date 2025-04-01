@@ -11,7 +11,7 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-        <!-- 使用圓柱體讓外型看起來較精緻 -->
+
         <geometry>
           <cylinder length="0.02" radius="0.01"/>
         </geometry>
@@ -45,7 +45,7 @@
       <visual>
         <origin xyz="0.04 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.08 0.015 0.04"/>
+          <box size="0.08 0.006 0.076"/>
         </geometry>
         <material name="Blue">
           <color rgba="0 0 1 1.0"/>
@@ -54,7 +54,7 @@
       <collision>
         <origin xyz="0.04 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.08 0.015 0.04"/>
+          <box size="0.08 0.006 0.076"/>
         </geometry>
         <surface>
           <friction>
@@ -74,7 +74,7 @@
       <visual>
         <origin xyz="0.04 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.08 0.015 0.04"/>
+          <box size="0.075 0.006 0.076"/>
         </geometry>
         <material name="Blue">
           <color rgba="0 0 1 1.0"/>
@@ -83,7 +83,7 @@
       <collision>
         <origin xyz="0.04 0 0" rpy="0 0 0"/>
         <geometry>
-          <box size="0.08 0.015 0.04"/>
+          <box size="0.08 0.006 0.076"/>
         </geometry>
         <surface>
           <friction>
