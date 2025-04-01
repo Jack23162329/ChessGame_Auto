@@ -18,7 +18,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/rosjack/catkin_ws/src/chessrobo/chessrobot_simulation/models/bishop_black/meshes/bishop.dae</uri>
+            <uri>model://bishop_black/meshes/bishop.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -45,7 +45,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/rosjack/catkin_ws/src/chessrobo/chessrobot_simulation/models/bishop_black/meshes/bishop.dae</uri>
+            <uri>model://bishop_black/meshes/bishop.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

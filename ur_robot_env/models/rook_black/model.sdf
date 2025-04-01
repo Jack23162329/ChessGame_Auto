@@ -23,7 +23,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/rosjack/catkin_ws/src/chessrobo/chessrobot_simulation/models/rook_black/meshes/rook.dae</uri>
+            <uri>model://rook_black/meshes/rook.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -50,7 +50,7 @@
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>/home/rosjack/catkin_ws/src/chessrobo/chessrobot_simulation/models/rook_black/meshes/rook.dae</uri>
+            <uri>model://rook_black/meshes/rook.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
